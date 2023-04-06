@@ -30,7 +30,5 @@ let gallery = new SimpleLightbox('.gallery a', options);
 
 
 gallery.on('shown.simplelightbox', function () {
-	const currentImag = this.currentImage();
-  currentImag.style.border = '5px solid black';
-
-    });
+  
+ });
