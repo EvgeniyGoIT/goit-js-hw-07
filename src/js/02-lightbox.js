@@ -14,21 +14,19 @@ function createGalleryList(item) {
 
 const galleryList = document.querySelector(".gallery");
 const galleryItemMarkup = createGalleryList(galleryItems);
-
+let captionsData = galleryItems.map(({ description }) => description);
 
 galleryList.insertAdjacentHTML("beforeend", galleryItemMarkup);
 
 let options  = {
-   caption: function ({ description }){
-      return description;
-   },
+   captionsData: captionsData,
    captionDelay: 250,
    captionPosition: "bottom",
 }
 
 let gallery = new SimpleLightbox('.gallery a', options);
-
+console.log(gallery)
 
 gallery.on('shown.simplelightbox', function () {
   
- });
+ });  
