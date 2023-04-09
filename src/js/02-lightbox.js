@@ -14,12 +14,18 @@ function createGalleryList(item) {
 
 const galleryList = document.querySelector(".gallery");
 const galleryItemMarkup = createGalleryList(galleryItems);
-let captionsData = galleryItems.map(({ description }) => description);
+
+galleryList.addEventListener('click', e => {
+  e.preventDefault();
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  }
+});
 
 galleryList.insertAdjacentHTML("beforeend", galleryItemMarkup);
 
 let options  = {
-   captionsData: captionsData,
+   captionsData: "alt",
    captionDelay: 250,
    captionPosition: "bottom",
 }
@@ -29,4 +35,4 @@ console.log(gallery)
 
 gallery.on('shown.simplelightbox', function () {
   
- });  
+ });
